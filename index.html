@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Dashboard - Aisha & Partner</title>
+    <title>Aishu Wedding</title>
     <style>
         * {
             margin: 0;
@@ -599,7 +599,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>💍 Aisha & Partner's Wedding</h1>
+            <h1>💍 Aishu Wedding</h1>
             <p>November 20-21, 2026 | Aadya Farms, Bangalore</p>
         </header>
 
@@ -617,6 +617,9 @@
             <button onclick="showPage('decoration')" class="nav-btn">🎀 Decoration</button>
             <button onclick="showPage('music')" class="nav-btn">🎵 Music</button>
             <button onclick="showPage('todo-list')" class="nav-btn">✅ Todo List</button>
+            <button onclick="showPage('travel')" class="nav-btn">🧳 Travel</button>
+            <button onclick="showPage('contacts')" class="nav-btn">📞 Contacts</button>
+            <button onclick="showPage('calendar')" class="nav-btn">📅 Calendar</button>
             <button onclick="toggleEditorMode()" class="nav-btn" id="editorBtn">🔓 Editor Login</button>
         </nav>
 
@@ -629,6 +632,7 @@
         <div class="sync-controls">
             <button onclick="syncFromSheets()">🔄 Sync from Sheets</button>
             <button onclick="syncToSheets()" id="syncToBtn" style="display: none;">💾 Sync to Sheets</button>
+            <button onclick="window.open('https://docs.google.com/spreadsheets/d/1E5GtuhqYCPWsyJ4Yw2GhW1-g7GTcUoGNd9AxgzTAD9I/edit?usp=sharing','_blank')" style="background:#4285f4;">📊 Edit Sheets</button>
             <span class="sync-status" id="syncStatus"></span>
         </div>
 
@@ -636,8 +640,8 @@
         <div id="main" class="page active">
             <div class="cards-grid">
                 <div class="card" onclick="showPage('public-events')">
-                    <h3>📅 Events</h3>
-                    <p>View wedding events and schedule</p>
+                    <h3>🔒 Private Events</h3>
+                    <p>View private wedding events</p>
                 </div>
                 <div class="card" onclick="showPage('catering')">
                     <h3>🍽️ Catering</h3>
@@ -658,6 +662,18 @@
                 <div class="card" onclick="showPage('todo-list')">
                     <h3>✅ Master Todo List</h3>
                     <p>All tasks across categories</p>
+                </div>
+                <div class="card" onclick="showPage('travel')">
+                    <h3>🧳 Travel</h3>
+                    <p>Travel arrangements & info</p>
+                </div>
+                <div class="card" onclick="showPage('contacts')">
+                    <h3>📞 Contacts</h3>
+                    <p>Vendors, family & key contacts</p>
+                </div>
+                <div class="card" onclick="showPage('calendar')">
+                    <h3>📅 Calendar</h3>
+                    <p>Monthly event calendar view</p>
                 </div>
             </div>
 
@@ -765,13 +781,13 @@
                     </ul>
 
                     <h4 style="margin-top: 20px;">Venue Location Map:</h4>
-                    <iframe 
-                      src="https://www.google.com/maps/embed?pb=!1m64!1m12!1m3!1d497213.31024357363!2d77.34861113038666!3d13.19515904838612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m58!3e0!4m5!1s0x3bae16c19132d31d%3A0x629c772959196b22!2sLalbagh%20Botanical%20Garden%2C%20Mavalli%2C%20Bengaluru%2C%20Karnataka%2C%20India!5m2!1d12.949415799999999!2d77.58468049999999!4m5!1s0x3bae1cfe75466567%3A0x2969f7295929268e!2sKempegowda%20International%20Airport%20Bengaluru%2C%20Karnataka%2C%20India!5m2!1d13.198908999999999!2d77.7068926!4m5!1s0x3bae15c2024cc0a7%3A0xfc6fa3b59a72df7d!2sVidhana%20Soudha%2C%20Doctor%20Ambedkar%20Road%2C%20Sampangi%20Rama%20Nagara%2C%20Bengaluru%2C%20Karnataka%2C%20India!5m2!1d12.979603299999999!2d77.5908529!4m5!1s0x3bae1373e740bc37%3A0xcc2ca6a9e943dfb8!2sSri%20Chamarajendra%20Park%2C%20Ambedkar%20Veedhi%2C%20Bengaluru%2C%20Karnataka%2C%20India!5m2!1d12.9752487!2d77.5928871!4m5!1s0x3bae3b2d0b360e07%3A0x3a7fb2aae3a2b2b3!2sISKCON%20Bangalore%2C%20Hare%20Krishna%20Hill%2C%20Chord%20Road%2C%20Rajajinagar%2C%20Bengaluru%2C%20Karnataka%2C%20India!5m2!1d13.009664299999999!2d77.5511344!4m5!1s0x3bae32133e83b75b%3A0x8bae0c913e860ce1!2sAadya%20Farms%20%26%20leisure%2C%20Yelahanka%2C%20Jarakbandekaval%2C%20Karnataka%2C%20India!5m2!1d13.124768999999999!2d77.5464564!4m5!1s0x3bae1f6a73a92b45%3A0x28389eac8ea4ba0a!2sPark%20Inn%20%26%20Suites%20by%20Radisson%20Bengaluru%20Yelahanka!5m2!1d13.1542709!2d77.5679036!4m5!1s0x3bae1f6614f9bd5d%3A0xd44eedede9be2e80!2sRamada%20by%20Wyndham%20Bengaluru%20Yelahanka!5m2!1d13.1568215!2d77.564622599999993!4m5!1s0x3bae2174ebd3abb5%3A0x1119f72959591d08!2sNandi%20Hills%2C%20Karnataka%2C%20India!5m2!1d13.370128399999999!2d77.6736554" 
-                      width="100%" 
-                      height="450" 
-                      style="border:0;" 
-                      allowfullscreen="" 
-                      loading="lazy" 
+                    <iframe
+                      src="https://maps.google.com/maps?q=Aadya+Farms+%26+Leisure+Yelahanka+Bangalore&output=embed"
+                      width="100%"
+                      height="450"
+                      style="border:0;"
+                      allowfullscreen=""
+                      loading="lazy"
                       referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
@@ -781,100 +797,169 @@
         <!-- AIRPORT PAGE -->
         <div id="airport" class="page">
             <h2>✈️ Kempegowda International Airport</h2>
-            <div class="table-container">
-                <div style="padding: 20px;">
-                    <p><strong>Official Name:</strong> Kempegowda International Airport, Bangalore</p>
-                    <p><strong>IATA Code:</strong> BLR</p>
-                    <p><strong>Phone:</strong> +91 80 2668 6666</p>
-                    <p><strong>Website:</strong> <a href="https://www.kempegowdaairport.com/" target="_blank">kempegowdaairport.com</a></p>
 
-                    <h4 style="margin-top: 20px;">Distance from Venue:</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li>📍 26 km from Aadya Farms</li>
-                        <li>⏱️ 45-60 mins by car (depending on traffic)</li>
-                        <li>🚖 Taxi/Uber available</li>
-                    </ul>
-
-                    <h4 style="margin-top: 20px;">Facilities:</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li>✓ Free WiFi</li>
-                        <li>✓ Multiple Restaurants & Cafes</li>
-                        <li>✓ Duty Free Shops</li>
-                        <li>✓ ATMs & Currency Exchange</li>
-                        <li>✓ Luggage Storage</li>
-                        <li>✓ Prayer Rooms</li>
-                        <li>✓ VIP Lounges</li>
-                    </ul>
-
-                    <h4 style="margin-top: 20px;">Transportation:</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li>🚕 Pre-arranged pickups available</li>
-                        <li>🚖 Uber/Ola taxis at airport</li>
-                        <li>🚌 Airport shuttle (enquire at info desk)</li>
-                        <li>💳 Credit card payment options</li>
-                    </ul>
-
-                    <h4 style="margin-top: 20px;">Tips:</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li>• Arrive 2-3 hours before international flights</li>
-                        <li>• Arrive 1-2 hours before domestic flights</li>
-                        <li>• Keep contact number of driver/hotel</li>
-                        <li>• Check weather conditions (monsoon: June-Sept)</li>
-                    </ul>
+            <!-- Info bar -->
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:18px;">
+                <div style="background:white;border-radius:12px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+                    <div style="font-size:1.6em;">🛫</div>
+                    <div style="font-weight:700;font-size:1.1em;color:#6b5345;">BLR</div>
+                    <div style="font-size:0.78em;color:#888;">IATA Code</div>
                 </div>
+                <div style="background:white;border-radius:12px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+                    <div style="font-size:1.6em;">📍</div>
+                    <div style="font-weight:700;font-size:1.1em;color:#6b5345;">26 km</div>
+                    <div style="font-size:0.78em;color:#888;">From Venue</div>
+                </div>
+                <div style="background:white;border-radius:12px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+                    <div style="font-size:1.6em;">⏱️</div>
+                    <div style="font-weight:700;font-size:1.1em;color:#6b5345;">45–60 min</div>
+                    <div style="font-size:0.78em;color:#888;">Drive Time</div>
+                </div>
+                <div style="background:white;border-radius:12px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+                    <div style="font-size:1.6em;">📞</div>
+                    <div style="font-weight:700;font-size:1.0em;color:#6b5345;">+91 80 2668 6666</div>
+                    <div style="font-size:0.78em;color:#888;">Airport Phone</div>
+                </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;">
+
+                <!-- Getting There -->
+                <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+                    <div style="font-weight:700;color:#6b5345;margin-bottom:10px;font-size:1.0em;">🚗 Getting to the Venue</div>
+                    <div style="display:flex;flex-direction:column;gap:8px;font-size:0.88em;color:#555;">
+                        <div style="display:flex;align-items:flex-start;gap:8px;"><span>🚕</span><span>Pre-arranged pickups available — contact us in advance</span></div>
+                        <div style="display:flex;align-items:flex-start;gap:8px;"><span>📱</span><span>Uber / Ola taxis available at arrivals</span></div>
+                        <div style="display:flex;align-items:flex-start;gap:8px;"><span>🚌</span><span>Airport shuttle — enquire at info desk</span></div>
+                        <div style="display:flex;align-items:flex-start;gap:8px;"><span>💳</span><span>Credit card accepted in most cabs</span></div>
+                    </div>
+                    <a href="https://www.kempegowdaairport.com/" target="_blank"
+                       style="display:inline-block;margin-top:12px;padding:6px 14px;background:#d4a5a5;color:white;border-radius:8px;text-decoration:none;font-size:0.8em;font-weight:600;">
+                       🌐 Airport Website
+                    </a>
+                </div>
+
+                <!-- Facilities -->
+                <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+                    <div style="font-weight:700;color:#6b5345;margin-bottom:10px;font-size:1.0em;">🏢 Airport Facilities</div>
+                    <div style="display:flex;flex-direction:column;gap:7px;font-size:0.88em;color:#555;">
+                        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#4caf50;">✓</span> Free WiFi throughout terminals</div>
+                        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#4caf50;">✓</span> Multiple restaurants &amp; cafes</div>
+                        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#4caf50;">✓</span> Duty free shops</div>
+                        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#4caf50;">✓</span> ATMs &amp; currency exchange</div>
+                        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#4caf50;">✓</span> Luggage storage</div>
+                        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#4caf50;">✓</span> Prayer rooms</div>
+                        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#4caf50;">✓</span> VIP lounges</div>
+                    </div>
+                </div>
+
+                <!-- Tips -->
+                <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+                    <div style="font-weight:700;color:#6b5345;margin-bottom:10px;font-size:1.0em;">💡 Travel Tips</div>
+                    <div style="display:flex;flex-direction:column;gap:8px;font-size:0.88em;color:#555;">
+                        <div style="background:#f5f1e8;border-radius:8px;padding:8px 10px;">🌍 Arrive <strong>2–3 hours</strong> before international flights</div>
+                        <div style="background:#f5f1e8;border-radius:8px;padding:8px 10px;">🇮🇳 Arrive <strong>1–2 hours</strong> before domestic flights</div>
+                        <div style="background:#f5f1e8;border-radius:8px;padding:8px 10px;">📱 Save your driver's / hotel's contact number</div>
+                        <div style="background:#f5f1e8;border-radius:8px;padding:8px 10px;">🌧️ Monsoon season: June – September</div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
         <!-- VISA PAGE -->
         <div id="visa" class="page">
             <h2>🛂 Indian Visa Information</h2>
-            <div class="table-container">
-                <div style="padding: 20px;">
-                    <h4>E-Visa (Recommended for most countries)</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li><strong>Processing Time:</strong> 2-4 business days</li>
-                        <li><strong>Validity:</strong> 30 or 60 days from issue</li>
-                        <li><strong>Cost:</strong> $10-25 USD (varies by country)</li>
-                        <li><strong>Multiple Entry:</strong> Available</li>
-                        <li><strong>Application:</strong> Online only</li>
-                    </ul>
 
-                    <h4 style="margin-top: 20px;">How to Apply:</h4>
-                    <ol style="padding-left: 20px;">
-                        <li>Visit: <a href="https://indianvisaonline.gov.in/" target="_blank">indianvisaonline.gov.in</a></li>
-                        <li>Fill online form (10 minutes)</li>
-                        <li>Upload documents (passport scan, photo)</li>
-                        <li>Pay visa fee online</li>
-                        <li>Receive approval via email (2-4 days)</li>
-                        <li>Print approval letter</li>
-                    </ol>
-
-                    <h4 style="margin-top: 20px;">Required Documents:</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li>✓ Valid Passport (6+ months validity)</li>
-                        <li>✓ Passport scan (bio page)</li>
-                        <li>✓ Recent photo (digital, white background)</li>
-                        <li>✓ Email address</li>
-                        <li>✓ Credit/Debit card for payment</li>
-                    </ul>
-
-                    <h4 style="margin-top: 20px;">Travel Insurance:</h4>
-                    <p>Recommended to get travel insurance covering:</p>
-                    <ul style="list-style: none; padding: 0;">
-                        <li>✓ Medical emergencies</li>
-                        <li>✓ Flight cancellations</li>
-                        <li>✓ Lost luggage</li>
-                        <li>✓ Trip delays</li>
-                    </ul>
-
-                    <h4 style="margin-top: 20px;">Important Notes:</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li>• E-Visa is valid for entry at designated airports only</li>
-                        <li>• Bangalore airport is authorized for e-visa entry</li>
-                        <li>• Keep printed approval letter during travel</li>
-                        <li>• Immigration may ask about travel plans</li>
-                    </ul>
+            <!-- Quick stats -->
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:18px;">
+                <div style="background:white;border-radius:12px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+                    <div style="font-size:1.6em;">⚡</div>
+                    <div style="font-weight:700;font-size:1.0em;color:#6b5345;">2–4 Days</div>
+                    <div style="font-size:0.78em;color:#888;">Processing Time</div>
                 </div>
+                <div style="background:white;border-radius:12px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+                    <div style="font-size:1.6em;">📅</div>
+                    <div style="font-weight:700;font-size:1.0em;color:#6b5345;">30–60 Days</div>
+                    <div style="font-size:0.78em;color:#888;">Validity</div>
+                </div>
+                <div style="background:white;border-radius:12px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+                    <div style="font-size:1.6em;">💵</div>
+                    <div style="font-weight:700;font-size:1.0em;color:#6b5345;">$10–25</div>
+                    <div style="font-size:0.78em;color:#888;">USD (varies)</div>
+                </div>
+                <div style="background:white;border-radius:12px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+                    <div style="font-size:1.6em;">🔁</div>
+                    <div style="font-weight:700;font-size:1.0em;color:#6b5345;">Multi-entry</div>
+                    <div style="font-size:0.78em;color:#888;">Available</div>
+                </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;">
+
+                <!-- How to Apply -->
+                <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+                    <div style="font-weight:700;color:#6b5345;margin-bottom:12px;font-size:1.0em;">📋 How to Apply (E-Visa)</div>
+                    <div style="display:flex;flex-direction:column;gap:8px;font-size:0.88em;color:#555;">
+                        <div style="display:flex;align-items:flex-start;gap:10px;">
+                            <span style="background:#d4a5a5;color:white;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.75em;font-weight:700;">1</span>
+                            <span>Visit <a href="https://indianvisaonline.gov.in/" target="_blank" style="color:#d4a5a5;font-weight:600;">indianvisaonline.gov.in</a></span>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:10px;">
+                            <span style="background:#d4a5a5;color:white;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.75em;font-weight:700;">2</span>
+                            <span>Fill online form (~10 minutes)</span>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:10px;">
+                            <span style="background:#d4a5a5;color:white;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.75em;font-weight:700;">3</span>
+                            <span>Upload passport scan &amp; photo</span>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:10px;">
+                            <span style="background:#d4a5a5;color:white;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.75em;font-weight:700;">4</span>
+                            <span>Pay visa fee online</span>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:10px;">
+                            <span style="background:#d4a5a5;color:white;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.75em;font-weight:700;">5</span>
+                            <span>Receive approval via email in 2–4 days</span>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:10px;">
+                            <span style="background:#d4a5a5;color:white;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.75em;font-weight:700;">6</span>
+                            <span>Print the approval letter &amp; carry it</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documents -->
+                <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+                    <div style="font-weight:700;color:#6b5345;margin-bottom:10px;font-size:1.0em;">📁 Required Documents</div>
+                    <div style="display:flex;flex-direction:column;gap:7px;font-size:0.88em;color:#555;">
+                        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#4caf50;font-weight:700;">✓</span> Valid passport (6+ months remaining validity)</div>
+                        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#4caf50;font-weight:700;">✓</span> Passport scan (bio data page)</div>
+                        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#4caf50;font-weight:700;">✓</span> Recent photo — digital, white background</div>
+                        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#4caf50;font-weight:700;">✓</span> Email address</div>
+                        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#4caf50;font-weight:700;">✓</span> Credit / Debit card for payment</div>
+                    </div>
+
+                    <div style="font-weight:700;color:#6b5345;margin:14px 0 10px;font-size:1.0em;">🛡️ Travel Insurance</div>
+                    <div style="font-size:0.82em;color:#777;margin-bottom:8px;">Recommended to cover:</div>
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;font-size:0.8em;">
+                        <span style="background:#f5f1e8;border-radius:20px;padding:4px 10px;">🏥 Medical emergencies</span>
+                        <span style="background:#f5f1e8;border-radius:20px;padding:4px 10px;">✈️ Flight cancellations</span>
+                        <span style="background:#f5f1e8;border-radius:20px;padding:4px 10px;">🧳 Lost luggage</span>
+                        <span style="background:#f5f1e8;border-radius:20px;padding:4px 10px;">⏰ Trip delays</span>
+                    </div>
+                </div>
+
+                <!-- Important Notes -->
+                <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+                    <div style="font-weight:700;color:#6b5345;margin-bottom:10px;font-size:1.0em;">⚠️ Important Notes</div>
+                    <div style="display:flex;flex-direction:column;gap:8px;font-size:0.88em;color:#555;">
+                        <div style="background:#fff8e1;border-left:3px solid #f6b93b;border-radius:6px;padding:8px 10px;">E-Visa is valid for entry at <strong>designated airports only</strong></div>
+                        <div style="background:#e8f5e9;border-left:3px solid #4caf50;border-radius:6px;padding:8px 10px;">✅ Bangalore (BLR) is an <strong>authorized e-visa entry</strong> airport</div>
+                        <div style="background:#fff8e1;border-left:3px solid #f6b93b;border-radius:6px;padding:8px 10px;">Print &amp; carry the <strong>approval letter</strong> during travel</div>
+                        <div style="background:#fff8e1;border-left:3px solid #f6b93b;border-radius:6px;padding:8px 10px;">Immigration may ask about your <strong>travel plans &amp; stay</strong></div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -890,7 +975,6 @@
                         <p><strong>Rating:</strong> ⭐⭐⭐⭐</p>
                         <p><strong>Rooms:</strong> 80+ rooms</p>
                         <p><strong>Amenities:</strong> Pool, Gym, Restaurant, WiFi, AC</p>
-                        <p><strong>Price Range:</strong> ₹4,000-7,000/night</p>
                         <p><strong>Phone:</strong> +91 80 2356 1234</p>
                         <a href="https://www.ramanashreecalifornia.com" target="_blank">Website</a>
                     </div>
@@ -902,7 +986,6 @@
                         <p><strong>Rating:</strong> ⭐⭐⭐⭐</p>
                         <p><strong>Rooms:</strong> 120+ rooms</p>
                         <p><strong>Amenities:</strong> Pool, Spa, Restaurant, Business Center</p>
-                        <p><strong>Price Range:</strong> ₹5,000-8,000/night</p>
                         <p><strong>Phone:</strong> +91 80 2356 0000</p>
                         <a href="https://www.parkinnyelahanka.com" target="_blank">Website</a>
                     </div>
@@ -914,7 +997,6 @@
                         <p><strong>Rating:</strong> ⭐⭐⭐⭐</p>
                         <p><strong>Rooms:</strong> 100+ rooms</p>
                         <p><strong>Amenities:</strong> Pool, Gym, Multi-cuisine Restaurant</p>
-                        <p><strong>Price Range:</strong> ₹4,500-7,500/night</p>
                         <p><strong>Phone:</strong> +91 80 2248 5555</p>
                         <a href="https://www.ramadasbangalore.com" target="_blank">Website</a>
                     </div>
@@ -926,7 +1008,6 @@
                         <p><strong>Rating:</strong> ⭐⭐⭐⭐ (4.2/5)</p>
                         <p><strong>Rooms:</strong> 79 rooms</p>
                         <p><strong>Amenities:</strong> Spa, Pool, Garden, Restaurant, WiFi</p>
-                        <p><strong>Price Range:</strong> ₹6,000-10,000/night</p>
                         <p><strong>Phone:</strong> +91 80 4139 1111</p>
                         <a href="https://www.angsana.com/india/bangalore" target="_blank">Website</a>
                     </div>
@@ -1003,6 +1084,47 @@
             </div>
         </div>
     </div>
+
+
+        <!-- CALENDAR PAGE -->
+        <div id="calendar" class="page">
+            <h2>📅 Event Calendar</h2>
+            <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;">
+                <div style="flex:1;min-width:300px;">
+                    <div class="table-container">
+                        <div style="padding:15px;">
+                            <div id="calFilters"></div>
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:15px;">
+                                <button onclick="calNav(-1)" style="background:#d4a5a5;color:white;border:none;padding:6px 14px;border-radius:5px;cursor:pointer;font-size:1.1em;">‹</button>
+                                <strong id="calMonthLabel" style="font-size:1.1em;color:#6b5345;"></strong>
+                                <button onclick="calNav(1)" style="background:#d4a5a5;color:white;border:none;padding:6px 14px;border-radius:5px;cursor:pointer;font-size:1.1em;">›</button>
+                            </div>
+                            <div id="calGrid"></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="flex:0 0 280px;">
+                    <div class="table-container" id="calSidebar">
+                        <h3>📋 Events</h3>
+                        <div style="padding:15px;color:#999;font-size:0.9em;">Click a date to see events</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRAVEL PAGE -->
+        <div id="travel" class="page">
+            <h2>🧳 Travel</h2>
+            <div id="travelContent"></div>
+        </div>
+
+        <!-- CONTACTS PAGE -->
+        <div id="contacts" class="page">
+            <h2>📞 Contacts</h2>
+            <div id="contactsContent">
+                <p style="padding:20px;color:#999;">Sync from Sheets to load contacts.</p>
+            </div>
+        </div>
 
     <!-- MODALS -->
     <!-- Add/Edit Vendor Modal -->
@@ -1262,6 +1384,15 @@
                 case 'todo-list':
                     displayTodoList();
                     break;
+                case 'travel':
+                    displayTravelPage();
+                    break;
+                case 'contacts':
+                    displayContactsPage();
+                    break;
+                case 'calendar':
+                    renderCalendar();
+                    break;
             }
         }
 
@@ -1269,7 +1400,8 @@
         function displayMainPage() {
             const events = allData['Public Events'] || { rows: [] };
             let html = `
-                <!-- Compact Wedding Info Cards -->
+                <!-- Wedding Information -->
+                <h3 style="color:#6b5345;margin-bottom:15px;">💒 Wedding Information</h3>
                 <div class="cards-grid">
                     <div class="info-card">
                         <h4>🅿️ Parking</h4>
@@ -1303,7 +1435,7 @@
             `;
             
             // Events table
-            html += '<div class="table-container"><h3>📅 Upcoming Events</h3><table><tr><th>Date</th><th>Time</th><th>Event</th><th>Location</th></tr>';
+            html += '<div class="table-container"><h3>📅 Wedding Events</h3><table><tr><th>Date</th><th>Time</th><th>Event</th><th>Location</th></tr>';
             
             events.rows.slice(0, 5).forEach(row => {
                 html += `<tr><td>${formatDate(row[0])}</td><td>${formatTime(row[1])}</td><td>${row[2]}</td><td>${row[3]}</td></tr>`;
@@ -1315,7 +1447,7 @@
 
         // Display Public Events
         function displayPublicEvents() {
-            const events = allData['Public Events'] || { headers: [], rows: [] };
+            const events = allData['Private Events'] || { headers: [], rows: [] };
             let html = '<table><tr>';
             
             events.headers.forEach(header => {
@@ -1447,6 +1579,475 @@
             
             html += '</table>';
             document.getElementById('todoListContent').innerHTML = html;
+        }
+
+
+
+        // ── CALENDAR ──
+        let calYear = 2026, calMonth = 10; // 0-based: 10 = November
+        let calActiveFilters = new Set(['public', 'private', 'todo', 'travel']);
+
+        // Color scheme per source
+        const CAL_COLORS = {
+            public:  { bg: '#d4a5a5', text: 'white',   label: '📅 Public Events'  },
+            private: { bg: '#7b9ea6', text: 'white',   label: '🔒 Private Events' },
+            todo:    { bg: '#8b9e7a', text: 'white',   label: '✅ Todo List'      },
+            travel:  { bg: '#c9b06b', text: 'white',   label: '🧳 Travel'         },
+        };
+
+        function getCalEvents() {
+            const map = {};
+
+            function parseSheetDate(raw) {
+                if (raw === null || raw === undefined || raw === '') return null;
+                let d;
+                if (typeof raw === 'number') {
+                    // Google Sheets serial number: days since Dec 30 1899
+                    d = new Date((raw - 25569) * 86400 * 1000);
+                } else if (typeof raw === 'string') {
+                    if (raw.match(/^\d{4}-\d{2}-\d{2}/)) {
+                        // ISO format "2026-11-20..."
+                        d = new Date(raw);
+                    } else if (raw.match(/[A-Za-z]/)) {
+                        // "Nov 20" style — append year
+                        d = new Date(raw + ' ' + calYear);
+                    } else {
+                        d = new Date(raw);
+                    }
+                } else {
+                    d = new Date(raw);
+                }
+                if (!d || isNaN(d.getTime())) return null;
+                // Guard: only accept dates within ±1 year of calYear
+                if (Math.abs(d.getFullYear() - calYear) > 1) return null;
+                return d;
+            }
+
+            // dateCol: which column index holds the date
+            function addRows(rows, source, dateCol, nameCol, timeCol, locCol) {
+                (rows || []).forEach(row => {
+                    const d = parseSheetDate(row[dateCol]);
+                    if (!d) return;
+                    const key = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
+                    if (!map[key]) map[key] = [];
+                    map[key].push({
+                        source,
+                        name: row[nameCol] || 'Event',
+                        time: timeCol !== null ? row[timeCol] : '',
+                        loc:  locCol  !== null ? row[locCol]  : '',
+                        full: row
+                    });
+                });
+            }
+
+            // Public Events:  Date(0), Time(1), Event(2), Location(3)
+            if (calActiveFilters.has('public'))
+                addRows((allData['Public Events']  || {rows:[]}).rows,  'public',  0, 2, 1, 3);
+            // Private Events: Date(0), Time(1), Event(2), Location(3)
+            if (calActiveFilters.has('private'))
+                addRows((allData['Private Events'] || {rows:[]}).rows,  'private', 0, 2, 1, 3);
+            // Todo List: Category(0), Task(1), Completed(2), Due Date(3), Assigned(4)
+            if (calActiveFilters.has('todo'))
+                addRows((allData['Todo List']      || {rows:[]}).rows,  'todo',    3, 1, null, null);
+            // Travel: header-aware, adds both departure & arrival date events
+            if (calActiveFilters.has('travel')) {
+                const travelData = allData['Travel'] || { headers: [], rows: [] };
+                const th = (travelData.headers || []).map(h => h.toLowerCase());
+
+                function tCol(keywords) {
+                    for (const kw of keywords) {
+                        const i = th.findIndex(h => h.includes(kw));
+                        if (i >= 0) return i;
+                    }
+                    return -1;
+                }
+
+                const t_name     = tCol(['name']);
+                const t_dep_date = tCol(['departure date', 'depart date', 'dep date', 'departure']);
+                const t_dep_city = tCol(['departure city', 'from city', 'origin', 'from']);
+                const t_dep_air  = tCol(['departure airline', 'dep airline', 'airline code', 'airline']);
+                const t_arr_date = tCol(['arrival date', 'arrive date', 'arr date', 'arrival']);
+                const t_arr_city = tCol(['arrival city', 'destination', 'to city', 'arriving', 'to']);
+                const t_comment  = tCol(['comment', 'note', 'remark', 'detail']);
+
+                (travelData.rows || []).forEach(row => {
+                    const name = t_name >= 0 ? row[t_name] : row[0] || 'Traveller';
+
+                    // Departure event
+                    if (t_dep_date >= 0) {
+                        const d = parseSheetDate(row[t_dep_date]);
+                        if (d) {
+                            const key = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
+                            if (!map[key]) map[key] = [];
+                            map[key].push({
+                                source: 'travel',
+                                eventType: 'departure',
+                                name: '✈️ ' + name + ' departs',
+                                travelRow: row,
+                                travelCols: { t_name, t_dep_date, t_dep_city, t_dep_air, t_arr_date, t_arr_city, t_comment },
+                                time: '', loc: ''
+                            });
+                        }
+                    }
+
+                    // Arrival event
+                    if (t_arr_date >= 0) {
+                        const d = parseSheetDate(row[t_arr_date]);
+                        if (d) {
+                            const key = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
+                            if (!map[key]) map[key] = [];
+                            map[key].push({
+                                source: 'travel',
+                                eventType: 'arrival',
+                                name: '🛬 ' + name + ' arrives',
+                                travelRow: row,
+                                travelCols: { t_name, t_dep_date, t_dep_city, t_dep_air, t_arr_date, t_arr_city, t_comment },
+                                time: '', loc: ''
+                            });
+                        }
+                    }
+
+                    // Fallback: no header match, use col 0 as date
+                    if (t_dep_date < 0 && t_arr_date < 0) {
+                        const d = parseSheetDate(row[0]);
+                        if (d) {
+                            const key = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
+                            if (!map[key]) map[key] = [];
+                            map[key].push({ source: 'travel', name: '🧳 ' + name, time: '', loc: '', full: row });
+                        }
+                    }
+                });
+            }
+
+            return map;
+        }
+
+        function renderCalendar() {
+            const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+            document.getElementById('calMonthLabel').textContent = months[calMonth] + ' ' + calYear;
+
+            // Render filter buttons
+            let filterHtml = '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px;">';
+            Object.entries(CAL_COLORS).forEach(([key, cfg]) => {
+                const active = calActiveFilters.has(key);
+                filterHtml += `<button onclick="toggleCalFilter('${key}')" id="calFilter-${key}"
+                    style="padding:5px 14px;border:2px solid ${cfg.bg};border-radius:20px;cursor:pointer;font-size:0.82em;font-weight:600;
+                    background:${active ? cfg.bg : 'white'};color:${active ? cfg.text : cfg.bg};transition:all 0.2s;">
+                    ${cfg.label}
+                </button>`;
+            });
+            filterHtml += '</div>';
+            document.getElementById('calFilters').innerHTML = filterHtml;
+
+            const evMap = getCalEvents();
+
+            const firstDay = new Date(calYear, calMonth, 1).getDay();
+            const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+            const today = new Date();
+
+            let html = '<table style="width:100%;border-collapse:collapse;">';
+            html += '<tr>' + ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d =>
+                `<th style="padding:6px;text-align:center;font-size:0.78em;color:#888;border-bottom:1px solid #eee;">${d}</th>`
+            ).join('') + '</tr>';
+
+            let day = 1;
+            for (let week = 0; week < 6; week++) {
+                if (day > daysInMonth) break;
+                html += '<tr>';
+                for (let dow = 0; dow < 7; dow++) {
+                    if (week === 0 && dow < firstDay) {
+                        html += '<td style="padding:4px;height:72px;"></td>';
+                    } else if (day > daysInMonth) {
+                        html += '<td style="padding:4px;height:72px;"></td>';
+                    } else {
+                        const key = calYear + '-' + calMonth + '-' + day;
+                        const evs = evMap[key] || [];
+                        const isToday = today.getFullYear()===calYear && today.getMonth()===calMonth && today.getDate()===day;
+                        const hasEv  = evs.length > 0;
+                        const bg     = isToday ? '#fff0f0' : hasEv ? '#fdf6ec' : 'white';
+                        const border = isToday ? '2px solid #d4a5a5' : '1px solid #eee';
+                        const dayNum = day;
+
+                        let preview = '';
+                        evs.slice(0, 2).forEach(ev => {
+                            const c = CAL_COLORS[ev.source] || CAL_COLORS.public;
+                            preview += `<div style="font-size:0.62em;background:${c.bg};color:${c.text};border-radius:3px;padding:1px 4px;margin-top:2px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">${ev.name}</div>`;
+                        });
+                        if (evs.length > 2) preview += `<div style="font-size:0.6em;color:#a0705f;">+${evs.length-2} more</div>`;
+
+                        html += `<td onclick="calSelectDay(${dayNum})" style="padding:4px;height:72px;vertical-align:top;background:${bg};border:${border};cursor:${hasEv?'pointer':'default'};border-radius:4px;">
+                            <div style="font-weight:bold;font-size:0.82em;color:${isToday?'#d4a5a5':'#555'}">${dayNum}</div>
+                            ${preview}
+                        </td>`;
+                        day++;
+                    }
+                }
+                html += '</tr>';
+            }
+            html += '</table>';
+            document.getElementById('calGrid').innerHTML = html;
+        }
+
+        function toggleCalFilter(key) {
+            if (calActiveFilters.has(key)) {
+                calActiveFilters.delete(key);
+            } else {
+                calActiveFilters.add(key);
+            }
+            renderCalendar();
+        }
+
+        function calNav(dir) {
+            calMonth += dir;
+            if (calMonth > 11) { calMonth = 0; calYear++; }
+            if (calMonth < 0)  { calMonth = 11; calYear--; }
+            renderCalendar();
+        }
+
+        function calSelectDay(day) {
+            const evMap = getCalEvents();
+            const key = calYear + '-' + calMonth + '-' + day;
+            const selected = evMap[key] || [];
+
+            const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            const label = months[calMonth] + ' ' + day + ', ' + calYear;
+            const sidebar = document.getElementById('calSidebar');
+
+            if (selected.length === 0) {
+                sidebar.innerHTML = `<h3>📋 ${label}</h3><div style="padding:15px;color:#999;font-size:0.9em;">No events on this day</div>`;
+                return;
+            }
+
+            let html = `<h3>📋 ${label}</h3><div style="padding:10px 15px;">`;
+            selected.forEach(ev => {
+                const c = CAL_COLORS[ev.source] || CAL_COLORS.public;
+
+                // ── Travel event: custom display ──
+                if (ev.source === 'travel' && ev.travelRow) {
+                    const row  = ev.travelRow;
+                    const cols = ev.travelCols;
+                    const name     = cols.t_name     >= 0 ? row[cols.t_name]     : '';
+                    const depCity  = cols.t_dep_city >= 0 ? row[cols.t_dep_city] : '';
+                    const depAir   = cols.t_dep_air  >= 0 ? row[cols.t_dep_air]  : '';
+                    const arrCity  = cols.t_arr_city >= 0 ? row[cols.t_arr_city] : '';
+                    const comment  = cols.t_comment  >= 0 ? row[cols.t_comment]  : '';
+
+                    let fields = '';
+                    if (ev.eventType === 'arrival') {
+                        // Arrival: Name, Departure City, Airline Code, Arrival City, Comments
+                        if (name)    fields += `<div style="font-size:0.85em;color:#555;">👤 <strong>${name}</strong></div>`;
+                        if (depCity) fields += `<div style="font-size:0.85em;color:#888;">🛫 From: ${depCity}</div>`;
+                        if (depAir)  fields += `<div style="font-size:0.85em;color:#888;">✈️ Airline: ${depAir}</div>`;
+                        if (arrCity) fields += `<div style="font-size:0.85em;color:#888;">🛬 Arriving: ${arrCity}</div>`;
+                        if (comment) fields += `<div style="font-size:0.85em;color:#888;">💬 ${comment}</div>`;
+                    } else {
+                        // Departure: Name, From (Arrival City), Destination (Departure Destination), Airline, Comments
+                        if (name)    fields += `<div style="font-size:0.85em;color:#555;">👤 <strong>${name}</strong></div>`;
+                        if (arrCity) fields += `<div style="font-size:0.85em;color:#888;">🛫 From: ${arrCity}</div>`;
+                        if (depCity) fields += `<div style="font-size:0.85em;color:#888;">📍 Destination: ${depCity}</div>`;
+                        if (depAir)  fields += `<div style="font-size:0.85em;color:#888;">✈️ Airline: ${depAir}</div>`;
+                        if (comment) fields += `<div style="font-size:0.85em;color:#888;">💬 ${comment}</div>`;
+                    }
+
+                    // Flight tracking buttons (shown when airline code exists)
+                    let flightTracker = '';
+                    if (depAir) {
+                        const flightNum = String(depAir).replace(/\s+/g, '').toUpperCase();
+                        const flightNumLower = flightNum.toLowerCase();
+                        flightTracker = `
+                        <div style="margin-top:10px;padding-top:10px;border-top:1px solid #e0d0c0;">
+                            <div style="font-size:0.78em;font-weight:600;color:#6b5345;margin-bottom:7px;">🛰️ Track ${flightNum} Live</div>
+                            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+                                <a href="https://flightaware.com/live/flight/${flightNum}" target="_blank"
+                                   style="display:inline-flex;align-items:center;gap:4px;background:#1a3a5c;color:white;
+                                          padding:5px 11px;border-radius:20px;font-size:0.75em;font-weight:600;text-decoration:none;">
+                                   ✈️ FlightAware
+                                </a>
+                                <a href="https://www.flightradar24.com/data/flights/${flightNumLower}" target="_blank"
+                                   style="display:inline-flex;align-items:center;gap:4px;background:#f26522;color:white;
+                                          padding:5px 11px;border-radius:20px;font-size:0.75em;font-weight:600;text-decoration:none;">
+                                   📡 Flightradar24
+                                </a>
+                                <a href="https://www.google.com/search?q=${flightNum}+flight+status+today" target="_blank"
+                                   style="display:inline-flex;align-items:center;gap:4px;background:#4285f4;color:white;
+                                          padding:5px 11px;border-radius:20px;font-size:0.75em;font-weight:600;text-decoration:none;">
+                                   🔍 Google
+                                </a>
+                            </div>
+                            <div style="font-size:0.72em;color:#aaa;margin-bottom:8px;">Live map — BLR Airport area</div>
+                            <iframe
+                                src="https://www.flightradar24.com/simple_index.php?lat=13.1986&lng=77.7066&z=8&widget=1"
+                                width="100%" height="180" frameborder="0" loading="lazy"
+                                style="border-radius:8px;border:1px solid #e0d0c0;display:block;"
+                                onerror="this.style.display='none'">
+                            </iframe>
+                        </div>`;
+                    }
+
+                    html += `<div style="border-left:4px solid ${c.bg};padding:8px 12px;margin-bottom:10px;background:#fdf6ec;border-radius:0 6px 6px 0;">
+                        <div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;">
+                            <span style="font-size:0.7em;background:${c.bg};color:${c.text};border-radius:10px;padding:1px 8px;">${c.label}</span>
+                        </div>
+                        <div style="font-weight:600;color:#6b5345;margin-bottom:4px;">${ev.name}</div>
+                        ${fields}
+                        ${flightTracker}
+                    </div>`;
+                    return;
+                }
+
+                // ── Standard event ──
+                html += `<div style="border-left:4px solid ${c.bg};padding:8px 12px;margin-bottom:10px;background:#fdf6ec;border-radius:0 6px 6px 0;">
+                    <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+                        <span style="font-size:0.7em;background:${c.bg};color:${c.text};border-radius:10px;padding:1px 8px;">${c.label}</span>
+                    </div>
+                    <div style="font-weight:600;color:#6b5345;">${ev.name}</div>
+                    ${ev.time ? `<div style="font-size:0.85em;color:#888;">🕐 ${formatTime(ev.time)}</div>` : ''}
+                    ${ev.loc  ? `<div style="font-size:0.85em;color:#888;">📍 ${ev.loc}</div>`  : ''}
+                </div>`;
+            });
+            html += '</div>';
+            sidebar.innerHTML = html;
+        }
+
+        // Format phone → WhatsApp link (strips spaces, dashes, +)
+        function waLink(phone) {
+            if (!phone) return null;
+            const digits = String(phone).replace(/[^\d]/g, '');
+            if (!digits) return null;
+            // If starts with 0, assume Indian: replace leading 0 with 91
+            const normalized = digits.startsWith('0') ? '91' + digits.slice(1) : digits;
+            return 'https://wa.me/' + normalized;
+        }
+
+        function waButton(phone) {
+            const link = waLink(phone);
+            if (!link) return '';
+            return `<a href="${link}" target="_blank" title="WhatsApp"
+                style="display:inline-flex;align-items:center;gap:5px;background:#25D366;color:white;
+                       padding:5px 12px;border-radius:20px;font-size:0.82em;font-weight:600;
+                       text-decoration:none;margin-top:6px;transition:background 0.2s;"
+                onmouseover="this.style.background='#1da851'" onmouseout="this.style.background='#25D366'">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.857L.057 23.428a.5.5 0 00.609.61l5.71-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6a9.572 9.572 0 01-4.895-1.342l-.351-.208-3.624.947.972-3.533-.228-.362A9.6 9.6 0 012.4 12C2.4 6.698 6.698 2.4 12 2.4S21.6 6.698 21.6 12 17.302 21.6 12 21.6z"/>
+                </svg>
+                ${phone}
+            </a>`;
+        }
+
+        // Display Contacts Page
+        function displayContactsPage() {
+            const contacts = allData['Contacts'] || { headers: [], rows: [] };
+            const container = document.getElementById('contactsContent');
+
+            if (!contacts.rows || contacts.rows.length === 0) {
+                container.innerHTML = '<p style="padding:20px;color:#999;">No contacts yet. Add rows to the Contact sheet and sync.</p>';
+                return;
+            }
+
+            const headers = contacts.headers;
+
+            // Try to detect columns by header name (case-insensitive)
+            function colIdx(names) {
+                for (const n of names) {
+                    const i = headers.findIndex(h => h.toLowerCase().includes(n.toLowerCase()));
+                    if (i >= 0) return i;
+                }
+                return -1;
+            }
+            const nameCol  = colIdx(['name']);
+            const roleCol  = colIdx(['role', 'category', 'type', 'title']);
+            const phoneCol = colIdx(['phone', 'mobile', 'contact', 'whatsapp', 'number']);
+            const emailCol = colIdx(['email', 'mail']);
+            const noteCol  = colIdx(['note', 'remark', 'detail', 'info']);
+
+            // Group by category/role if column exists
+            let html = '';
+
+            if (roleCol >= 0) {
+                const groups = {};
+                contacts.rows.forEach(row => {
+                    const grp = row[roleCol] || 'Other';
+                    if (!groups[grp]) groups[grp] = [];
+                    groups[grp].push(row);
+                });
+
+                Object.entries(groups).forEach(([grp, rows]) => {
+                    html += `<div class="table-container" style="margin-bottom:20px;">
+                        <h3>👥 ${grp}</h3>
+                        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding:16px;">`;
+                    rows.forEach(row => {
+                        const name  = nameCol  >= 0 ? row[nameCol]  : row[0] || '';
+                        const phone = phoneCol >= 0 ? row[phoneCol] : '';
+                        const email = emailCol >= 0 ? row[emailCol] : '';
+                        const note  = noteCol  >= 0 ? row[noteCol]  : '';
+                        html += `<div style="background:#fdf6ec;border-radius:8px;padding:14px;border-left:4px solid #d4a5a5;">
+                            <div style="font-weight:700;font-size:1em;color:#6b5345;margin-bottom:4px;">${name}</div>
+                            ${note  ? `<div style="font-size:0.83em;color:#888;margin-bottom:4px;">📝 ${note}</div>` : ''}
+                            ${email ? `<div style="font-size:0.83em;color:#555;margin-bottom:4px;">✉️ <a href="mailto:${email}" style="color:#6b5345;">${email}</a></div>` : ''}
+                            ${waButton(phone)}
+                        </div>`;
+                    });
+                    html += '</div></div>';
+                });
+            } else {
+                // No category column — flat card grid
+                html += `<div class="table-container"><h3>📞 All Contacts</h3>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding:16px;">`;
+                contacts.rows.forEach(row => {
+                    const name  = nameCol  >= 0 ? row[nameCol]  : row[0] || '';
+                    const phone = phoneCol >= 0 ? row[phoneCol] : '';
+                    const email = emailCol >= 0 ? row[emailCol] : '';
+                    const note  = noteCol  >= 0 ? row[noteCol]  : '';
+                    html += `<div style="background:#fdf6ec;border-radius:8px;padding:14px;border-left:4px solid #d4a5a5;">
+                        <div style="font-weight:700;font-size:1em;color:#6b5345;margin-bottom:4px;">${name}</div>
+                        ${note  ? `<div style="font-size:0.83em;color:#888;margin-bottom:4px;">📝 ${note}</div>` : ''}
+                        ${email ? `<div style="font-size:0.83em;color:#555;margin-bottom:4px;">✉️ <a href="mailto:${email}" style="color:#6b5345;">${email}</a></div>` : ''}
+                        ${waButton(phone)}
+                    </div>`;
+                });
+                html += '</div></div>';
+            }
+
+            container.innerHTML = html;
+        }
+
+        // Display Travel Page
+        function displayTravelPage() {
+            const travel = allData['Travel'] || { headers: [], rows: [] };
+            const container = document.getElementById('travelContent');
+
+            if (!travel.rows || travel.rows.length === 0) {
+                container.innerHTML = '<p style="padding:20px;color:#999;">No travel data yet. Add rows to the Travel sheet and sync.</p>';
+                return;
+            }
+
+            // Detect airline column by header
+            const hdrs = (travel.headers || []).map(h => String(h).toLowerCase().trim());
+            const airIdx = hdrs.findIndex(h => h.includes('airline') || h.includes('flight'));
+
+            let html = '<div class="table-container"><h3>🧳 Travel Details</h3><table><tr>';
+            (travel.headers || []).forEach(h => { html += `<th>${h}</th>`; });
+            if (airIdx >= 0) html += '<th>Track Flight</th>';
+            html += '</tr>';
+
+            travel.rows.forEach(row => {
+                html += '<tr>';
+                row.forEach(cell => { html += `<td>${cell || ''}</td>`; });
+                if (airIdx >= 0) {
+                    const depAir = row[airIdx] ? String(row[airIdx]).replace(/\s+/g, '').toUpperCase() : '';
+                    if (depAir) {
+                        html += `<td><a href="https://flightaware.com/live/flight/${depAir}" target="_blank"
+                            style="padding:4px 10px;background:#1a73e8;color:white;border-radius:6px;text-decoration:none;font-size:0.78em;font-weight:600;white-space:nowrap;">✈️ FlightAware</a></td>`;
+                    } else {
+                        html += '<td></td>';
+                    }
+                }
+                html += '</tr>';
+            });
+
+            html += '</table></div>';
+            container.innerHTML = html;
         }
 
         // Filter Todo List
@@ -1795,4 +2396,4 @@
         }
     </script>
 </body>
-</html>
+</html>                                  
