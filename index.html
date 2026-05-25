@@ -1497,13 +1497,22 @@
                 </div>
             `;
             
-            // Events table
-            html += '<div class="table-container"><h3>📅 Wedding Events</h3><table><tr><th>Date</th><th>Time</th><th>Event</th><th>Location</th></tr>';
-            
+            // Events table — dynamic columns
+            const evHdrs = (events.headers || []).map(h => String(h).toLowerCase().trim());
+            const evDateIdx = evHdrs.findIndex(h => h.includes('date'));
+            const evTimeIdx = evHdrs.findIndex(h => h.includes('time'));
+            html += '<div class="table-container"><h3>📅 Wedding Events</h3><table><tr>';
+            (events.headers || []).forEach(h => { html += `<th>${h}</th>`; });
+            html += '</tr>';
             events.rows.slice(0, 5).forEach(row => {
-                html += `<tr><td>${formatDate(row[0])}</td><td>${formatTime(row[1])}</td><td>${row[2]}</td><td>${row[3]}</td></tr>`;
+                html += '<tr>';
+                row.forEach((cell, i) => {
+                    if (i === evDateIdx)      html += `<td>${formatDate(cell)}</td>`;
+                    else if (i === evTimeIdx) html += `<td>${formatTime(cell)}</td>`;
+                    else                      html += `<td>${cell ?? ''}</td>`;
+                });
+                html += '</tr>';
             });
-            
             html += '</table></div>';
             document.getElementById('mainEventsPreview').innerHTML = html;
         }
@@ -1511,24 +1520,20 @@
         // Display Public Events
         function displayPublicEvents() {
             const events = allData['Private Events'] || { headers: [], rows: [] };
+            const hdrs = (events.headers || []).map(h => String(h).toLowerCase().trim());
+            const dateIdx = hdrs.findIndex(h => h.includes('date'));
+            const timeIdx = hdrs.findIndex(h => h.includes('time'));
+
             let html = '<table><tr>';
-            
-            events.headers.forEach(header => {
-                html += `<th>${header}</th>`;
-            });
+            (events.headers || []).forEach(h => { html += `<th>${h}</th>`; });
             html += '</tr>';
 
-            events.rows.forEach((row, idx) => {
+            events.rows.forEach(row => {
                 html += '<tr>';
-                row.forEach((cell, colIdx) => {
-                    // Format date (column 0) and time (column 1)
-                    if (colIdx === 0) {
-                        html += `<td>${formatDate(cell)}</td>`;
-                    } else if (colIdx === 1) {
-                        html += `<td>${formatTime(cell)}</td>`;
-                    } else {
-                        html += `<td>${cell}</td>`;
-                    }
+                row.forEach((cell, i) => {
+                    if (i === dateIdx)      html += `<td>${formatDate(cell)}</td>`;
+                    else if (i === timeIdx) html += `<td>${formatTime(cell)}</td>`;
+                    else                    html += `<td>${cell ?? ''}</td>`;
                 });
                 html += '</tr>';
             });
@@ -1540,71 +1545,101 @@
         // Display Vendor Page
         function displayVendorPage(sheetName, category) {
             currentCategory = category;
-            const vendors = allData[sheetName] || { rows: [] };
-            
-            let html = '';
+            const vendors = allData[sheetName] || { headers: [], rows: [] };
 
-            // Finalized Section
-            const finalized = vendors.rows.filter(row => row[0] === 'Finalized');
-            if (finalized.length > 0) {
-                html += `<div class="table-container">
-                    <h3>✅ Finalized</h3>
-                    <table>
-                        <tr><th>Name</th><th>Contact</th><th>Website</th><th>Notes</th><th>Actions</th></tr>`;
-                finalized.forEach((row, idx) => {
-                    const originalIdx = vendors.rows.indexOf(row);
-                    html += `<tr>
-                        <td>${row[1]}</td>
-                        <td>${row[2]}</td>
-                        <td><a href="${row[3]}" target="_blank">${row[3] ? 'Link' : '-'}</a></td>
-                        <td>${row[6]}</td>
-                        <td>${isEditorMode ? `<button class="btn-edit" onclick="editVendor('${sheetName}', ${originalIdx})">Edit</button>
-                            <button class="btn-delete" onclick="deleteVendor('${sheetName}', ${originalIdx})">Delete</button>` : ''}</td>
-                    </tr>`;
-                });
-                html += '</table></div>';
+            // ── Detect columns by header name ──────────────────────────
+            const hdrs = (vendors.headers || []).map(h => String(h).toLowerCase().trim());
+            const ci = {
+                status:  hdrs.findIndex(h => h === 'type' || h === 'status'),
+                name:    hdrs.findIndex(h => h.includes('name') || h.includes('vendor')),
+                contact: hdrs.findIndex(h => h.includes('contact') || h.includes('phone')),
+                website: hdrs.findIndex(h => h.includes('website') || h.includes('url') || h.includes('link')),
+                votes:   hdrs.findIndex(h => h.includes('vote')),
+                notes:   hdrs.findIndex(h => h.includes('note') || h.includes('comment') || h.includes('remark')),
+                docs:    hdrs.findIndex(h => h.includes('doc') || h.includes('pdf') || h.includes('file') || h.includes('attachment')),
+            };
+
+            // Columns to show in the table (exclude status col, include everything else)
+            const displayCols = hdrs.map((h, i) => i).filter(i => i !== ci.status);
+
+            const g = (row, idx) => idx >= 0 && idx < row.length ? (row[idx] ?? '') : '';
+
+            // Render PDF doc links from a cell value (comma or newline separated)
+            function renderDocs(val) {
+                if (!val) return '-';
+                const links = String(val).split(/[,\n]+/).map(s => s.trim()).filter(Boolean);
+                return links.map((url, i) =>
+                    `<a href="${url}" target="_blank"
+                        style="display:inline-block;margin:2px;padding:4px 10px;background:#d4a5a5;color:white;border-radius:6px;text-decoration:none;font-size:0.78em;font-weight:600;white-space:nowrap;">
+                        📄 Doc ${links.length > 1 ? i+1 : ''}
+                    </a>`
+                ).join('');
             }
 
-            // Shortlisted Section
-            const shortlisted = vendors.rows.filter(row => row[0] === 'Shortlisted');
-            if (shortlisted.length > 0) {
-                html += `<div class="table-container">
-                    <h3>📋 Shortlisted</h3>
-                    <table>
-                        <tr><th>Name</th><th>Contact</th><th>Website</th><th>Votes</th><th>Notes</th><th>Actions</th></tr>`;
-                shortlisted.forEach((row, idx) => {
+            function renderCell(row, colIdx) {
+                const val = g(row, colIdx);
+                if (colIdx === ci.docs) return renderDocs(val);
+                if (colIdx === ci.website) {
+                    if (!val) return '-';
+                    const links = String(val).split(/[,\n]+/).map(s => s.trim()).filter(Boolean);
+                    return links.map((url, i) =>
+                        `<a href="${url}" target="_blank"
+                            style="display:inline-block;margin:2px;padding:4px 10px;background:#7b9ea6;color:white;border-radius:6px;text-decoration:none;font-size:0.78em;font-weight:600;white-space:nowrap;">
+                            🔗 Link${links.length > 1 ? ' ' + (i+1) : ''}
+                        </a>`
+                    ).join('');
+                }
+                if (colIdx === ci.votes)   return val || '-';
+                return val || '';
+            }
+
+            function renderSection(title, rows) {
+                if (rows.length === 0) return '';
+                let s = `<div class="table-container"><h3>${title}</h3><table><tr>`;
+                displayCols.forEach(i => { s += `<th>${vendors.headers[i]}</th>`; });
+                s += '<th>Actions</th></tr>';
+                rows.forEach(row => {
                     const originalIdx = vendors.rows.indexOf(row);
-                    html += `<tr>
-                        <td>${row[1]}</td>
-                        <td>${row[2]}</td>
-                        <td><a href="${row[3]}" target="_blank">${row[3] ? 'Link' : '-'}</a></td>
-                        <td>${row[5]}</td>
-                        <td>${row[6]}</td>
-                        <td>${isEditorMode ? `<button class="btn-edit" onclick="editVendor('${sheetName}', ${originalIdx})">Edit</button>
-                            <button class="btn-delete" onclick="deleteVendor('${sheetName}', ${originalIdx})">Delete</button>` : ''}</td>
-                    </tr>`;
+                    s += '<tr>';
+                    displayCols.forEach(i => { s += `<td>${renderCell(row, i)}</td>`; });
+                    s += `<td>${isEditorMode
+                        ? `<button class="btn-edit" onclick="editVendor('${sheetName}', ${originalIdx})">Edit</button>
+                           <button class="btn-delete" onclick="deleteVendor('${sheetName}', ${originalIdx})">Delete</button>`
+                        : ''}</td></tr>`;
                 });
-                html += '</table></div>';
+                s += '</table></div>';
+                return s;
+            }
+
+            let html = '';
+
+            // Use status column if found, else show all rows as shortlisted
+            if (ci.status >= 0) {
+                html += renderSection('✅ Finalized',   vendors.rows.filter(r => String(g(r, ci.status)).toLowerCase() === 'finalized'));
+                html += renderSection('📋 Shortlisted', vendors.rows.filter(r => String(g(r, ci.status)).toLowerCase() === 'shortlisted'));
+            } else {
+                html += renderSection('📋 Vendors', vendors.rows);
             }
 
             // Todos Section
             const todos = allData['Todo List'] || { rows: [] };
             const categoryTodos = todos.rows.filter(row => row[0] === category.charAt(0).toUpperCase() + category.slice(1));
-            
             if (categoryTodos.length > 0) {
                 html += `<div class="table-container">
                     <h3>✓ Related Todos</h3>
                     <table>
                         <tr><th>Task</th><th>Completed</th><th>Due Date</th><th>Assigned To</th><th>Actions</th></tr>`;
-                categoryTodos.forEach((row, idx) => {
+                categoryTodos.forEach(row => {
                     const originalIdx = todos.rows.indexOf(row);
                     html += `<tr>
                         <td>${row[1]}</td>
                         <td><span class="status-badge ${row[2] === 'Yes' ? 'status-yes' : 'status-no'}">${row[2]}</span></td>
                         <td>${row[3]}</td>
                         <td>${row[4]}</td>
-                        <td>${isEditorMode ? `<button class="btn-edit" onclick="editTodo(${originalIdx})">Edit</button>
-                            <button class="btn-delete" onclick="deleteTodo(${originalIdx})">Delete</button>` : ''}</td>
+                        <td>${isEditorMode
+                            ? `<button class="btn-edit" onclick="editTodo(${originalIdx})">Edit</button>
+                               <button class="btn-delete" onclick="deleteTodo(${originalIdx})">Delete</button>`
+                            : ''}</td>
                     </tr>`;
                 });
                 html += '</table></div>';
@@ -1615,31 +1650,54 @@
 
         // Display Todo List
         function displayTodoList() {
-            const todos = allData['Todo List'] || { rows: [] };
+            const todos = allData['Todo List'] || { headers: [], rows: [] };
             const filter = document.getElementById('todoFilter').value;
-            
+
+            // Detect columns by header
+            const hdrs = (todos.headers || []).map(h => String(h).toLowerCase().trim());
+            const ci = {
+                category:  hdrs.findIndex(h => h.includes('category') || h.includes('cat')),
+                task:      hdrs.findIndex(h => h.includes('task') || h.includes('description') || h.includes('item')),
+                completed: hdrs.findIndex(h => h.includes('complete') || h.includes('done') || h.includes('status')),
+                dueDate:   hdrs.findIndex(h => h.includes('due') || h.includes('date')),
+                assigned:  hdrs.findIndex(h => h.includes('assign') || h.includes('owner') || h.includes('person')),
+            };
+            const g = (row, idx) => idx >= 0 ? (row[idx] ?? '') : '';
+
             let filtered = todos.rows;
-            if (filter) {
-                filtered = todos.rows.filter(row => row[0] === filter);
+            if (filter && ci.category >= 0) {
+                filtered = todos.rows.filter(row => g(row, ci.category) === filter);
             }
 
-            let html = '<table><tr><th>Category</th><th>Task</th><th>Completed</th><th>Due Date</th><th>Assigned To</th><th>Actions</th></tr>';
-            
-            filtered.forEach((row, idx) => {
+            // Build header row — use detected headers or fallback
+            let html = '<table><tr>';
+            if (todos.headers && todos.headers.length > 0) {
+                todos.headers.forEach(h => { html += `<th>${h}</th>`; });
+            } else {
+                html += '<th>Category</th><th>Task</th><th>Completed</th><th>Due Date</th><th>Assigned To</th>';
+            }
+            html += '<th>Actions</th></tr>';
+
+            filtered.forEach(row => {
                 const originalIdx = todos.rows.indexOf(row);
-                const completed = row[2] === 'Yes' ? 'Yes' : 'No';
-                const dueDate = formatDate(row[3]); // Format the due date
-                html += `<tr>
-                    <td>${row[0]}</td>
-                    <td>${row[1]}</td>
-                    <td><span class="status-badge ${completed === 'Yes' ? 'status-yes' : 'status-no'}">${completed}</span></td>
-                    <td>${dueDate}</td>
-                    <td>${row[4]}</td>
-                    <td>${isEditorMode ? `<button class="btn-edit" onclick="editTodo(${originalIdx})">Edit</button>
-                        <button class="btn-delete" onclick="deleteTodo(${originalIdx})">Delete</button>` : ''}</td>
-                </tr>`;
+                const completedVal = g(row, ci.completed);
+                const isYes = String(completedVal).toLowerCase() === 'yes';
+                html += '<tr>';
+                row.forEach((cell, i) => {
+                    if (i === ci.completed) {
+                        html += `<td><span class="status-badge ${isYes ? 'status-yes' : 'status-no'}">${cell ?? ''}</span></td>`;
+                    } else if (i === ci.dueDate) {
+                        html += `<td>${formatDate(cell)}</td>`;
+                    } else {
+                        html += `<td>${cell ?? ''}</td>`;
+                    }
+                });
+                html += `<td>${isEditorMode
+                    ? `<button class="btn-edit" onclick="editTodo(${originalIdx})">Edit</button>
+                       <button class="btn-delete" onclick="deleteTodo(${originalIdx})">Delete</button>`
+                    : ''}</td></tr>`;
             });
-            
+
             html += '</table>';
             document.getElementById('todoListContent').innerHTML = html;
         }
