@@ -623,8 +623,8 @@
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-VQLZ3Z8KBE');
+        gtag("js", new Date());
+        gtag("config", "G-VQLZ3Z8KBE");
     </script>
 </head>
 <body>
@@ -2545,4 +2545,14 @@
         }
 
         // Modal close on outside click
-        window.onclick = functio
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal.active');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>                                  
