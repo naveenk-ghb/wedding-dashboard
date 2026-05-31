@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aishu Wedding</title>
+    <title>Aishu & Dev Wedding</title>
     <style>
         * {
             margin: 0;
@@ -630,7 +630,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>💍 Aishu Wedding</h1>
+            <h1>💍 Aishu & Dev Wedding</h1>
             <p>November 20-21, 2026 | Aadya Farms, Bangalore</p>
         </header>
 
@@ -1856,7 +1856,7 @@
             document.getElementById('calMonthLabel').textContent = months[calMonth] + ' ' + calYear;
 
             // Render filter buttons
-            let filterHtml = '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px;">';
+            let filterHtml = '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px;align-items:center;">';
             Object.entries(CAL_COLORS).forEach(([key, cfg]) => {
                 const active = calActiveFilters.has(key);
                 filterHtml += `<button onclick="toggleCalFilter('${key}')" id="calFilter-${key}"
@@ -1865,6 +1865,11 @@
                     ${cfg.label}
                 </button>`;
             });
+            filterHtml += `<button onclick="clearCalFilters()"
+                style="padding:5px 14px;border:2px solid #ccc;border-radius:20px;cursor:pointer;font-size:0.82em;font-weight:600;
+                background:white;color:#999;transition:all 0.2s;" title="Clear all filters">
+                ✕ Clear
+            </button>`;
             filterHtml += '</div>';
             document.getElementById('calFilters').innerHTML = filterHtml;
 
@@ -1923,6 +1928,11 @@
             } else {
                 calActiveFilters.add(key);
             }
+            renderCalendar();
+        }
+
+        function clearCalFilters() {
+            calActiveFilters.clear();
             renderCalendar();
         }
 
