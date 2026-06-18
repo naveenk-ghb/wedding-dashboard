@@ -1,0 +1,6 @@
+{
+  "name": "Aishu & Dev Wedding",
+  "description": "Elegant, responsive, and animated wedding invitation website for Aishwarya & Dev featuring active countdown, sangeet/wedding itinerary, accommodation and travel guidelines, and interactive RSVP guest book.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
