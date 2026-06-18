@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Alex+Brush&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-script: "Alex Brush", cursive;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Custom Color Presets matching Aishwarya & Dev Invitation PDF & Frosted Glass Rose theme */
+  --color-wedding-pink-light: rgba(255, 240, 243, 0.6);
+  --color-wedding-pink-medium: #ffccd5;
+  --color-wedding-pink-dark: #fb7185;
+  --color-wedding-magenta: #be123c;
+  --color-wedding-burgundy: #4c0519;
+  --color-gold-light: #fdf2f0;
+  --color-gold-medium: #fda4af;
+  --color-gold-dark: #aa7c11;
+  --color-cream-soft: #fdf2f0;
+  --color-charcoal-deep: #1a1516;
+}
+
+@layer utilities {
+  /* Scrollbar configuration styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #fdf2f0;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #fecdd3;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #fb7185;
+  }
+
+  /* Frosted Glass Utilities from Theme Guidelines */
+  .glass-panel-sm {
+    backdrop-filter: blur(24px);
+    background-color: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    box-shadow: 0 20px 40px -15px rgba(253, 224, 230, 0.6);
+  }
+
+  .glass-panel-lg {
+    backdrop-filter: blur(40px);
+    background-color: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 25px 50px -12px rgba(244, 63, 94, 0.12);
+  }
+
+  /* Soft Ambient Watercolor Blooms matching the Design HTML */
+  .watercolor-radial-1 {
+    background: radial-gradient(circle at 10% 20%, rgba(254, 205, 211, 0.6) 0%, rgba(255, 255, 255, 0) 60%);
+  }
+  .watercolor-radial-2 {
+    background: radial-gradient(circle at 90% 80%, rgba(255, 237, 213, 0.7) 0%, rgba(255, 255, 255, 0) 70%);
+  }
+}
+
+
